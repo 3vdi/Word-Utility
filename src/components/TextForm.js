@@ -20,6 +20,10 @@ export default function TextForm(props) {
         setText(text.split(" ").join(""))
         props.showAlert("spaces removed", "success");
     }
+    const extraspaceremove =(event)=>{
+      setText(text.replace(/\s+/g,' ').trim());
+      props.showAlert("extra spaces removed", "success");
+    }
     const cleartext =()=>{
       let newText='';
       setText(newText)
@@ -56,6 +60,7 @@ export default function TextForm(props) {
 <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>convert to uppercase</button>
 <button className="btn btn-success mx-2 my-2" onClick={handleDownClick}>convert to lowercase</button>
 <button className="btn btn-danger mx-2 my-2" onClick={spaceremove}>remove spaces</button>
+<button className="btn btn-secondary mx-2 my-2" onClick={extraspaceremove}>remove extra spaces</button>
 <button className="btn btn-warning mx-2 my-2" onClick={copyContent}>copy to clipboard</button>
 <button className="btn btn-dark mx-2 my-2" onClick={cleartext}>clear text</button>
 </div>
