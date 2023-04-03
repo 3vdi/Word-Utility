@@ -30,12 +30,21 @@ export default function TextForm(props) {
       props.showAlert("text cleared", "success");
   }
     const copyContent =(event)=> {
-        try {
-          navigator.clipboard.writeText(text);
-          props.showAlert('Content copied to clipboard', 'success');
-        } catch (err) {
-          props.showAlert('Failed to copy: ', err);
-        }
+      const textarea = document.createElement('textarea');
+      document.body.appendChild(textarea);
+      textarea.value = text;
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      props.showAlert('Content copied to clipboard', 'success');
+        // the below code was not working in mobile devices
+        // try {
+        //   navigator.clipboard.writeText(text);
+        //   props.showAlert('Content copied to clipboard', 'success');
+        // } catch (err) {
+        //   props.showAlert('Failed to copy: ', err);
+        // }
       }
       function wordlng(text) { 
         const arr = text.split(' ');
