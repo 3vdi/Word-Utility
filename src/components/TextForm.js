@@ -33,14 +33,7 @@ export default function TextForm(props) {
           props.showAlert('Failed to copy: ', err);
         }
       }
-      function wordlng(text) {
-        // if (text===''){
-        // return text.split(" ").length-1 
-        // }else if (text===' '){
-        //     return text.split(" ").length-1 
-        // }else{
-        // return text.split(" ").length 
-        // }  
+      function wordlng(text) { 
         const arr = text.split(' ');
 
         return arr.filter(word => word !== '').length;
