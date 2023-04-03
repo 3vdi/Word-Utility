@@ -36,12 +36,12 @@ function App() {
   }
   return (
     <>  
-<Navbar title="textutility" mode={mode} toggleMode={toggleMode}/>
+<Navbar title="Word-Utility" mode={mode} toggleMode={toggleMode}/>
 <Alert alert={alert}/>
 <div className="container my-3">
 
 {/* <Route path="/about" element={<About/>}/> */}
-<TextForm heading="enter text" mode={mode} showAlert={showAlert}/>
+<TextForm heading="Enter text here" mode={mode} showAlert={showAlert}/>
 
 </div>
     </>
